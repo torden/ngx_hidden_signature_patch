@@ -1,0 +1,19 @@
+--- src/http/ngx_http_special_response.c.org	2017-02-06 14:04:47.755076236 +0900
++++ src/http/ngx_http_special_response.c	2017-02-06 14:05:11.185076231 +0900
+@@ -19,14 +19,14 @@
+ 
+ 
+ static u_char ngx_http_error_full_tail[] =
+-"<hr><center>" NGINX_VER "</center>" CRLF
++//"<hr><center>" NGINX_VER "</center>" CRLF
+ "</body>" CRLF
+ "</html>" CRLF
+ ;
+ 
+ 
+ static u_char ngx_http_error_tail[] =
+-"<hr><center>nginx</center>" CRLF
++//"<hr><center>nginx</center>" CRLF
+ "</body>" CRLF
+ "</html>" CRLF
+ ;
