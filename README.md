@@ -1,4 +1,4 @@
-# Just! a Hidden Server Signature of Nginx Web Server
+# Just! a Hide Server Signature of Nginx Web Server
 
 Depending on the environment of production, We may need to hide server signature.
 
