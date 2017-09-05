@@ -22,6 +22,8 @@ This is a simple patches which hide server signature of nginx web server.
 |nginx-1.8-ngx_http_header_filter_module.c.patch|1.8.x|
 |nginx-1.10-ngx_http_header_filter_module.c.patch|1.10.x|
 |nginx-1.11-ngx_http_header_filter_module.c.patch|1.11.x|
+|nginx-1.12.0-ngx_http_header_filter_module.c.patch|1.12.0 ~ 1.12.1 (TESTED)|
+|nginx-1.13.0-ngx_http_header_filter_module.c.patch|1.13.0 ~ 1.13.4 (TESTED)|
 
 ## Patch
 
