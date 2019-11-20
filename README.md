@@ -12,18 +12,20 @@ This is a simple patches which hide server signature of nginx web server.
 
 ## List of Tested Version
 
-|*Patch File*|*Version*|
-|---|---|
-|nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch|1.0.15 ~ 1.11.9|
-|nginx-1.0-ngx_http_header_filter_module.c.patch|1.0.x|
-|nginx-1.2-ngx_http_header_filter_module.c.patch|1.2.x|
-|nginx-1.4-ngx_http_header_filter_module.c.patch|1.4.x|
-|nginx-1.6-ngx_http_header_filter_module.c.patch|1.6.x|
-|nginx-1.8-ngx_http_header_filter_module.c.patch|1.8.x|
-|nginx-1.10-ngx_http_header_filter_module.c.patch|1.10.x|
-|nginx-1.11-ngx_http_header_filter_module.c.patch|1.11.x|
-|nginx-1.12.0-ngx_http_header_filter_module.c.patch|1.12.0 ~ 1.12.1 (TESTED)|
-|nginx-1.13.0-ngx_http_header_filter_module.c.patch|1.13.0 ~ 1.13.4 (TESTED)|
+
+|*Nginx Version*|*Patch File 1*|*Patch File 2*|
+|---|---|---|
+|1.0.x|[nginx-1.0-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.0-ngx_http_header_filter_module.c.patch)|[nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch)|
+|1.2.x|[nginx-1.2-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.2-ngx_http_header_filter_module.c.patch)|[nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch)|
+|1.4.x|[nginx-1.4-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.4-ngx_http_header_filter_module.c.patch)|[nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch)|
+|1.6.x|[nginx-1.6-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.6-ngx_http_header_filter_module.c.patch)|[nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch)|
+|1.8.x|[nginx-1.8-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.8-ngx_http_header_filter_module.c.patch)|[nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch)|
+|1.10.x|[nginx-1.10-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.10-ngx_http_header_filter_module.c.patch)|[nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch)|
+|1.11.x|[nginx-1.11-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.11-ngx_http_header_filter_module.c.patch)|[nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch)|
+|1.12.x|[nginx-1.12.0-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.12.0-ngx_http_header_filter_module.c.patch)|[nginx-1.12.0-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.12.0-ngx_http_special_response.c.patch)|
+|1.13.x|[nginx-1.13.0-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.13.0-ngx_http_header_filter_module.c.patch)|[nginx-1.13.0-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.13.0-ngx_http_special_response.c.patch)|
+|1.14.x ~ 1.17.x|[nginx-1.14.x-1.17.x-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_header_filter_module.c.patch)|[nginx-1.14.x-1.17.x-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_special_response.c.patch)|
+
 
 ## Patch
 
@@ -37,8 +39,8 @@ patch -p0 < ../ngx_hidden_signature_patch/nginx-1.0.15-1.11.9-ngx_http_special_r
 # patching file src/http/ngx_http_special_response.c
 
 ./configure
-gmake
-gmake install
+make
+make install
 ```
 
 ### Generally Response of Nginx
