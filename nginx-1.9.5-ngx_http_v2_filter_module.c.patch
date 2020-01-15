@@ -1,0 +1,35 @@
+--- src/http/v2/ngx_http_v2_filter_module.c	2020-01-15 06:30:53.034327718 +0000
++++ src/http/v2/ngx_http_v2_filter_module.c.patch	2020-01-15 06:31:36.130459440 +0000
+@@ -211,12 +211,12 @@
+     len = status ? 1 : 1 + ngx_http_v2_literal_size("418");
+ 
+     clcf = ngx_http_get_module_loc_conf(r, ngx_http_core_module);
+-
++/*
+     if (r->headers_out.server == NULL) {
+         len += 1 + clcf->server_tokens ? ngx_http_v2_literal_size(NGINX_VER)
+                                        : ngx_http_v2_literal_size("nginx");
+     }
+-
++*/
+     if (r->headers_out.date == NULL) {
+         len += 1 + ngx_http_v2_literal_size("Wed, 31 Dec 1986 18:00:00 GMT");
+     }
+@@ -409,7 +409,7 @@
+         *b->last++ = 3;
+         b->last = ngx_sprintf(b->last, "%03ui", r->headers_out.status);
+     }
+-
++/*
+     if (r->headers_out.server == NULL) {
+         *b->last++ = ngx_http_v2_inc_indexed(NGX_HTTP_V2_SERVER_INDEX);
+ 
+@@ -422,7 +422,7 @@
+             b->last = ngx_cpymem(b->last, "nginx", sizeof("nginx") - 1);
+         }
+     }
+-
++*/
+     if (r->headers_out.date == NULL) {
+         *b->last++ = ngx_http_v2_inc_indexed(NGX_HTTP_V2_DATE_INDEX);
+         *b->last++ = (u_char) ngx_cached_http_time.len;
