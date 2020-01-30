@@ -13,6 +13,8 @@ This is a simple patches which hide server signature of nginx web server.
 ## List of Tested Version
 
 
+### For HTTP, HTTPS
+
 |*Nginx Version*|*Patch File 1*|*Patch File 2*|
 |---|---|---|
 |1.0.x|[nginx-1.0-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.0-ngx_http_header_filter_module.c.patch)|[nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch)|
@@ -26,6 +28,14 @@ This is a simple patches which hide server signature of nginx web server.
 |1.13.x|[nginx-1.13.0-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.13.0-ngx_http_header_filter_module.c.patch)|[nginx-1.13.0-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.13.0-ngx_http_special_response.c.patch)|
 |1.14.x ~ 1.17.x|[nginx-1.14.x-1.17.x-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_header_filter_module.c.patch)|[nginx-1.14.x-1.17.x-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_special_response.c.patch)|
 
+### For HTTP/2
+
+|*Nginx Version(http v2 module)*|*Patch File*|
+|---|---|
+|1.9.x ~ |[nginx-1.9.5-ngx_http_v2_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.9.5-ngx_http_v2_filter_module.c.patch)
+|1.10.x ~ |[nginx-1.10.3-ngx_http_v2_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.10.3-ngx_http_v2_filter_module.c.patch)
+|1.12.x ~ |[nginx-1.12.2-ngx_http_v2_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.12.2-ngx_http_v2_filter_module.c.patch)
+|1.14.x ~ 1.17.x|[nginx-1.14.x-1.17.x-ngx_http_v2_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_v2_filter_module.c.patch)
 
 ## Patch
 
@@ -33,10 +43,15 @@ This is a simple patches which hide server signature of nginx web server.
 wget http://nginx.org/download/nginx-1.10.3.tar.gz
 tar xvzf nginx-1.10.3.tar.gz
 cd nginx-1.10.3
+
 patch -p0 < ../ngx_hidden_signature_patch/nginx-1.10-ngx_http_header_filter_module.c.patch
 # patching file src/http/ngx_http_header_filter_module.c
+
 patch -p0 < ../ngx_hidden_signature_patch/nginx-1.0.15-1.11.9-ngx_http_special_response.c.patch
 # patching file src/http/ngx_http_special_response.c
+
+patch -p0 < ../ngx_hidden_signature_patch/nginx-1.10.3-ngx_http_v2_filter_module.c.patch
+# patching file src/http/nginx-1.10.3-ngx_http_v2_filter_module.c.patch
 
 ./configure
 make
@@ -54,6 +69,15 @@ Date: Mon, 06 Feb 2017 05:45:59 GMT
 Content-Type: text/html
 Content-Length: 169
 Connection: keep-alive
+
+HTTP/2 200
+*server: nginx/1.10.3*
+date: Mon, 06 Feb 2017 05:45:25 GMT
+content-type: text/html
+content-length: 612
+last-modified: Thu, 30 Jan 2020 05:03:50 GMT
+etag: "5e3263b6-264"
+accept-ranges: bytes
 
 <html>
 <head><title>404 Not Found</title></head>
@@ -77,6 +101,15 @@ Content-Type: text/html
 Content-Length: 162
 Connection: keep-alive
 
+HTTP/2 200
+*server: nginx*
+date: Mon, 06 Feb 2017 05:45:25 GMT
+content-type: text/html
+content-length: 612
+last-modified: Thu, 30 Jan 2020 05:03:50 GMT
+etag: "5e3263b6-264"
+accept-ranges: bytes
+
 <html>
 <head><title>404 Not Found</title></head>
 <body bgcolor="white">
@@ -97,6 +130,14 @@ Date: Mon, 06 Feb 2017 05:45:25 GMT
 Content-Type: text/html
 Content-Length: 134
 Connection: keep-alive
+
+HTTP/2 200
+date: Mon, 06 Feb 2017 05:45:25 GMT
+content-type: text/html
+content-length: 612
+last-modified: Thu, 30 Jan 2020 05:03:50 GMT
+etag: "5e3263b6-264"
+accept-ranges: bytes
 
 <html>
 <head><title>404 Not Found</title></head>
