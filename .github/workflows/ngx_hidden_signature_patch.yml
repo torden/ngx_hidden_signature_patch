@@ -12,4 +12,21 @@ jobs:
     # Run build of the application
     - name: Run build - nginx ${{ matrix.ngx }}
       run: |
-        ls -al
+        sudo apt update -y
+        sudo apt install gcc g++ make patch curl git libpcre3-dev zlib1g-dev -y
+        curl -ss -O https://nginx.org/download/nginx-${{ matrix.ngx }}.tar.gz
+        tar xvzf nginx-${{ matrix.ngx }}.tar.gz
+        cd nginx-${{ matrix.ngx }}
+
+        patch -p0 < ../nginx-1.14.x-1.17.x-ngx_http_header_filter_module.c.patch
+        patch -p0 < ../nginx-1.14.x-1.17.x-ngx_http_special_response.c.patch
+        patch -p0 < ../nginx-1.14.x-1.17.x-ngx_http_v2_filter_module.c.patch
+
+        ./configure --prefix=/tmp/nginx/ ; make -j4 ; make install
+        /tmp/nginx/sbin/nginx
+
+        CK_HEADER=$(curl -ss -I http://localhost/hello | fgrep -i nginx | wc -l)
+        [ "$CK_HEADER" -eq "1" ] && exit 1 ||  && exit 0 
+
+        CK_ERRBODY=$(curl -ss  http://localhost/hello | fgrep -i nginx | wc -l)
+        [ "$CK_ERRBODY" -eq "1" ] && exit 1 ||  && exit 0
