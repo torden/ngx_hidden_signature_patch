@@ -23,7 +23,7 @@ jobs:
         patch -p0 < ../nginx-1.14.x-1.17.x-ngx_http_v2_filter_module.c.patch
 
         ./configure --prefix=/tmp/nginx/ ; make -j4 ; make install
-        /tmp/nginx/sbin/nginx
+        sudo /tmp/nginx/sbin/nginx
 
         CK_HEADER=$(curl -ss -I http://localhost/hello | fgrep -i nginx | wc -l)
         [ "$CK_HEADER" -eq "1" ] && exit 1 ||  && exit 0 
