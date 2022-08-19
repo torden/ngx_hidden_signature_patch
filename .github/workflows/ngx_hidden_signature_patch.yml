@@ -26,7 +26,11 @@ jobs:
         sudo /tmp/nginx/sbin/nginx
 
         CK_HEADER=$(curl -ss -I http://localhost/hello | fgrep -i nginx | wc -l)
-        [ "$CK_HEADER" -eq "1" ] && exit 1 ||  && exit 0 
+        if [ "$CK_HEADER" -eq "1" ]; then
+          exit 1
+        fi
 
         CK_ERRBODY=$(curl -ss  http://localhost/hello | fgrep -i nginx | wc -l)
-        [ "$CK_ERRBODY" -eq "1" ] && exit 1 ||  && exit 0
+        if [ "$CK_ERRBODY" -eq "1" ]; then
+          exit 1
+        fi
