@@ -47,8 +47,8 @@ curl -s -O https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx
 curl -s -O https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_v2_filter_module.c.patch
 curl -s -O http://nginx.org/download/nginx-1.23.1.tar.gz
 
-tar xvzf nginx-1.20.2.tar.gz
-cd nginx-1.20.2
+tar xvzf nginx-1.23.1.tar.gz
+cd nginx-1.23.1
 
 patch -p0 < ../ngx_hidden_signature_patch/nginx-1.14.x-1.17.x-ngx_http_header_filter_module.c.patch
 patch -p0 < ../ngx_hidden_signature_patch/nginx-1.14.x-1.17.x-ngx_http_special_response.c.patch
