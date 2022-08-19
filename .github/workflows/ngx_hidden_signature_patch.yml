@@ -4,19 +4,19 @@ jobs:
   build_and_test:
     strategy:
       matrix:
-       symbol-list: ['1.23.1', '1.22.0', '1.20.2', '1.18.0', '1.16.1', '1.14.2']
+       ngx: ['1.23.1', '1.22.0', '1.20.2', '1.18.0', '1.16.1', '1.14.2']
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     
     # Run build of the application
-    - name: Run build - nginx $
+    - name: Run build - nginx ${{ matrix.ngx }}
       run: |
         sudo apt update -y
         sudo apt install gcc g++ make patch curl git libpcre3-dev zlib1g-dev -y
-        curl -ss -O https://nginx.org/download/nginx-$.tar.gz
-        tar xvzf nginx-$.tar.gz
-        cd nginx-$
+        curl -ss -O https://nginx.org/download/nginx-${{ matrix.ngx }}.tar.gz
+        tar xvzf nginx-${{ matrix.ngx }}.tar.gz
+        cd nginx-${{ matrix.ngx }}
 
         patch -p0 < ../ngx_hidden_signature_patch/nginx-1.14.x-1.17.x-ngx_http_header_filter_module.c.patch
         patch -p0 < ../ngx_hidden_signature_patch/nginx-1.14.x-1.17.x-ngx_http_special_response.c.patch
