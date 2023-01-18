@@ -29,30 +29,31 @@ This is a simple patches which hide server signature of nginx web server.
 |1.12.x|[nginx-1.12.0-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.12.0-ngx_http_header_filter_module.c.patch)|[nginx-1.12.0-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.12.0-ngx_http_special_response.c.patch)|
 |1.13.x|[nginx-1.13.0-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.13.0-ngx_http_header_filter_module.c.patch)|[nginx-1.13.0-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.13.0-ngx_http_special_response.c.patch)|
 |1.14.x ~ 1.23.x|[nginx-1.14.x-1.17.x-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_header_filter_module.c.patch)|[nginx-1.14.x-1.17.x-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_special_response.c.patch)|
+|1.22.x ~ 1.23.x|[nginx-1.22.x-1.23.x-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.22.x-1.23.x-ngx_http_header_filter_module.c.patch)|[nginx-1.14.x-1.23.x-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.23.x-ngx_http_special_response.c.patch)|
 
 ### For HTTP/2
 
 |*Nginx Version(http v2 module)*|*Patch File*|
 |---|---|
-|1.9.x ~ |[nginx-1.9.5-ngx_http_v2_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.9.5-ngx_http_v2_filter_module.c.patch)
-|1.10.x ~ |[nginx-1.10.3-ngx_http_v2_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.10.3-ngx_http_v2_filter_module.c.patch)
-|1.12.x ~ |[nginx-1.12.2-ngx_http_v2_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.12.2-ngx_http_v2_filter_module.c.patch)
-|1.14.x ~ 1.23.x|[nginx-1.14.x-1.17.x-ngx_http_v2_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_v2_filter_module.c.patch)
+|1.9.x ~ |[nginx-1.9.5-ngx_http_v2_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.9.5-ngx_http_v2_filter_module.c.patch)|
+|1.10.x ~ |[nginx-1.10.3-ngx_http_v2_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.10.3-ngx_http_v2_filter_module.c.patch)|
+|1.12.x ~ |[nginx-1.12.2-ngx_http_v2_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.12.2-ngx_http_v2_filter_module.c.patch)|
+|1.14.x ~ 1.23.x|[nginx-1.14.x-1.17.x-ngx_http_v2_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_v2_filter_module.c.patch) OR [nginx-1.14.x-1.23.x-ngx_http_v2_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.23.x-ngx_http_v2_filter_module.c.patch)|
 
 ## Patch
 
 ```bash
-curl -s -O https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_header_filter_module.c.patch
-curl -s -O https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_special_response.c.patch
-curl -s -O https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_v2_filter_module.c.patch
+curl -s -O https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.22.x-1.23.x-ngx_http_header_filter_module.c.patch
+curl -s -O https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.23.x-ngx_http_special_response.c.patch
+curl -s -O https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.23.x-ngx_http_v2_filter_module.c.patch
 curl -s -O http://nginx.org/download/nginx-1.23.1.tar.gz
 
 tar xvzf nginx-1.23.1.tar.gz
 cd nginx-1.23.1
 
-patch -p0 < ../ngx_hidden_signature_patch/nginx-1.14.x-1.17.x-ngx_http_header_filter_module.c.patch
-patch -p0 < ../ngx_hidden_signature_patch/nginx-1.14.x-1.17.x-ngx_http_special_response.c.patch
-patch -p0 < ../ngx_hidden_signature_patch/nginx-1.14.x-1.17.x-ngx_http_v2_filter_module.c.patch
+patch -p0 < ../ngx_hidden_signature_patch/nginx-1.22.x-1.23.x-ngx_http_header_filter_module.c.patch
+patch -p0 < ../ngx_hidden_signature_patch/nginx-1.14.x-1.23.x-ngx_http_special_response.c.patch
+patch -p0 < ../ngx_hidden_signature_patch/nginx-1.14.x-1.23.x-ngx_http_v2_filter_module.c.patch
 
 ./configure
 make
