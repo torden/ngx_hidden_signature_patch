@@ -62,6 +62,16 @@ make
 make install
 ```
 
+## Hard Patch (nginx -V)
+```
+tar xvzf nginx-1.xx.x.tar.gz
+cd nginx-1.xx.x
+
+perl -p -i -e "s/[0-9]+\.[0-9]+\.[0-9]+//gi" src/core/nginx.h
+perl -p -i -e "s/nginx\///gi" src/core/nginx.h
+
+```
+
 ### Generally Response of Nginx
 
 You can looking for server signature.
