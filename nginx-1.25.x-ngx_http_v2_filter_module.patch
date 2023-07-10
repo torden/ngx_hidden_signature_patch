@@ -1,5 +1,5 @@
 --- src/http/v2/ngx_http_v2_filter_module.c	2023-06-14 00:08:10.000000000 +0900
-+++ src/http/v2/ngx_http_v2_filter_module.c.patch	2023-07-10 11:18:19.513462646 +0900
++++ src/http/v2/ngx_http_v2_filter_module.c.patch	2023-07-10 11:22:19.835245955 +0900
 @@ -115,18 +115,18 @@
      ngx_http_core_srv_conf_t  *cscf;
      u_char                     addr[NGX_SOCKADDR_STRLEN];
