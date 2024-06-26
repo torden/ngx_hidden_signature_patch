@@ -31,6 +31,7 @@ This is a simple patches which hide server signature of nginx web server.
 |1.13.x|[nginx-1.13.0-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.13.0-ngx_http_header_filter_module.c.patch)|[nginx-1.13.0-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.13.0-ngx_http_special_response.c.patch)|
 |1.14.x ~ 1.23.x|[nginx-1.14.x-1.17.x-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_header_filter_module.c.patch)|[nginx-1.14.x-1.17.x-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.17.x-ngx_http_special_response.c.patch)|
 |1.22.x ~ 1.24.x|[nginx-1.22.x-1.23.x-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.22.x-1.23.x-ngx_http_header_filter_module.c.patch)|[nginx-1.14.x-1.23.x-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.23.x-ngx_http_special_response.c.patch)|
+|1.22.x ~ 1.27.x|[nginx-1.22.x-1.23.x-ngx_http_header_filter_module.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.22.x-1.23.x-ngx_http_header_filter_module.c.patch)|[nginx-1.14.x-1.23.x-ngx_http_special_response.c.patch](https://github.com/torden/ngx_hidden_signature_patch/raw/master/nginx-1.14.x-1.23.x-ngx_http_special_response.c.patch)|
 
 ### For HTTP/2
 

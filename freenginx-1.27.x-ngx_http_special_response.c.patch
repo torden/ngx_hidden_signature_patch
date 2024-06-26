@@ -1,0 +1,27 @@
+--- src/http/ngx_http_special_response.c	2024-06-04 22:55:54.000000000 +0900
++++ src/http/ngx_http_special_response.c.new	2024-06-26 14:36:07.259654964 +0900
+@@ -19,21 +19,21 @@
+ 
+ 
+ static u_char ngx_http_error_full_tail[] =
+-"<hr><center>" NGINX_VER "</center>" CRLF
++//"<hr><center>" NGINX_VER "</center>" CRLF
+ "</body>" CRLF
+ "</html>" CRLF
+ ;
+ 
+ 
+ static u_char ngx_http_error_build_tail[] =
+-"<hr><center>" NGINX_VER_BUILD "</center>" CRLF
++//"<hr><center>" NGINX_VER_BUILD "</center>" CRLF
+ "</body>" CRLF
+ "</html>" CRLF
+ ;
+ 
+ 
+ static u_char ngx_http_error_tail[] =
+-"<hr><center>" NGINX_NAME "</center>" CRLF
++//"<hr><center>" NGINX_NAME "</center>" CRLF
+ "</body>" CRLF
+ "</html>" CRLF
+ ;
